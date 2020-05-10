@@ -15,12 +15,12 @@ int strLen(char s[]) {
     i = 0;
     while (s[i] != '\0')
         i++;
-    return i;
+    return i++;
 }
 
 void reverse(char s[]) {
     int len;
     len = strLen(s);
     while (len >= 0)
-        printf("%c", s[len--]);
+        printf("%c", s[--len]);
 }

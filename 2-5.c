@@ -6,7 +6,7 @@ int main() {
     char s1[] = "abcdefg";
     char s2[] = "xyz";
 
-    int index=any(s1, s2);
+    int index = any(s1, s2);
     printf("%d\n", index);
 
     return 0;
