@@ -22,7 +22,7 @@ class Stack<T> {
 
   top(): T {
     if (!this.isEmpty()) return this.items[this.topOfStack];
-    throw new Error("stack is null");
+    throw new Error("stack is empty");
   }
 
   pop() {
@@ -31,7 +31,7 @@ class Stack<T> {
 
   topAndPop(): T {
     if (!this.isEmpty()) return this.items[this.topOfStack--];
-    throw new Error("stack is null");
+    throw new Error("stack is empty");
   }
 
   toString(): string {
