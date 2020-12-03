@@ -1,2 +1,1 @@
-# Data-Structures
-TypeScript数据结构
+## TypeScript 基础数据结构以及部分排序算法
