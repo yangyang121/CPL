@@ -1,25 +1,22 @@
 function partition(arr: number[], left: number, right: number): number {
-  let x = arr[left]
-  let i = left
-  let j = right
-  while (i < j) {
-    while (i < j && arr[j] > x) {
-      j--
-    }
-    if (i < j) {
-      arr[i] = arr[j]
-    }
-    while (i < j && arr[i] < x) {
+  const x = arr[right]
+  let i = left - 1
+  for (let j = left; j < right; j++) {
+    if (arr[j] <= x) {
       i++
-    }
-    if (i < j) {
-      arr[j] = arr[i]
+      ;[arr[j], arr[i]] = [arr[i], arr[j]]
     }
   }
 
-  arr[i] = x
-
+  i++
+  ;[arr[right], arr[i]] = [arr[i], arr[right]]
   return i
+}
+
+function randomPartition(arr: number[], l: number, r: number): number {
+  const i = Math.floor(Math.random() * (r - l)) + l
+  ;[arr[i], arr[r]] = [arr[r], arr[i]]
+  return partition(arr, l, r)
 }
 
 function quickSort(arr: number[], left: number = 0, right?: number): number[] {
@@ -27,7 +24,7 @@ function quickSort(arr: number[], left: number = 0, right?: number): number[] {
   let start = left
   let end = right === undefined ? len - 1 : right
   if (start < end) {
-    const index = partition(arr, start, end)
+    const index = randomPartition(arr, start, end)
     quickSort(arr, start, index - 1)
     quickSort(arr, index + 1, end)
   }
